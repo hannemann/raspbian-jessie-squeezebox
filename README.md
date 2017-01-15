@@ -19,9 +19,10 @@ sudo make install
 cd ..
 ```
 
-Compile Triode Jivelite
+### Compile Triode Jivelite
 ```
 git clone https://github.com/ralph-irving/triode-jivelite.git
 cd triode-jivelite
 sudo make PREFIX=/usr/local
 ```
+These commands create a binary in the bin subfolder that can be executed from a terminal on the display you want to use it. Starting the binary via ssh does not work.
