@@ -26,3 +26,4 @@ cd triode-jivelite
 sudo make PREFIX=/usr/local
 ```
 These commands create a binary in the bin subfolder that can be executed from a terminal on the display you want to use it. Starting the binary via ssh does not work.
+Jivelite runs without an X server.
