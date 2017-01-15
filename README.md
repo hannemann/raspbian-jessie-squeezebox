@@ -1,4 +1,4 @@
-# raspbin-jessie-squeezebox
+# raspbian-jessie-squeezebox
 
 ### Jivelite
 dependencies installed:
@@ -46,3 +46,6 @@ if [ $(tty) = "/dev/tty1" ]; then
         /home/pi/triode-jivelite/bin/jivelite
 fi
 ```
+ATX Power supply for the PI via +5VSB and switching the PSU on already working. More to come...
+
+Next steps: lirc via GPIO, the case i am using has some tactile switches that can be used for navigation, pre amp USB soun card for the turntable, cd playback via cdrom, eGalay Touchscreen driver and calibration
