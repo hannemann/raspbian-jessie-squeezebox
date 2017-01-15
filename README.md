@@ -18,3 +18,10 @@ make
 sudo make install
 cd ..
 ```
+
+Compile Triode Jivelite
+```
+git clone https://github.com/ralph-irving/triode-jivelite.git
+cd triode-jivelite
+sudo make PREFIX=/usr/local
+```
