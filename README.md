@@ -32,12 +32,17 @@ Jivelite runs without an X server.
 ```sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf```
 ```
 [Service]
+Type=simple
 ExecStart=
-ExecStart=-/usr/bin/agetty --autologin pi --noclear %I $TERM
+ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM
 ```
-~/.bash_profile
+``` vi ~/.bash_profile```
 ```
 #!/bin/bash
 
-[[ $(tty) = "/dev/tty1" ]] && /home/pi/triode-jivelite/bin/jivelite
+if [ $(tty) = "/dev/tty1" ]; then
+        /usr/bin/gpio mode 0 out
+        /usr/bin/gpio write 0 1
+        /home/pi/triode-jivelite/bin/jivelite
+fi
 ```
