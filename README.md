@@ -27,3 +27,17 @@ sudo make PREFIX=/usr/local
 ```
 These commands create a binary in the bin subfolder that can be executed from a terminal on the display you want to use it. Starting the binary via ssh does not work.
 Jivelite runs without an X server.
+
+### Autologin via systemd
+```sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf```
+```
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin pi --noclear %I $TERM
+```
+~/.bash_profile
+```
+#!/bin/bash
+
+[[ $(tty) = "/dev/tty1" ]] && /home/pi/triode-jivelite/bin/jivelite
+```
