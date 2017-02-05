@@ -5,6 +5,11 @@
 * Behringer ufo202 (comes with integrated phono preamp and works ootb with raspbian jessie)
 * Hifiberry DAC+
 * Superpower HTPC Case with integrated 7" Touchscreen and a front Panel with 5 tactile switches, a power switch and a IR receiver (the panel does not work in any way and has to be modified)
+For the DAC to work add following line to /boot/config.txt
+```
+dtoverlay=hifiberry-dacplus
+```
+I soldered pin headers to the dac. Most GPIO pins can then be used for... general purpose. We use them to read the buttons from the front panel and the ir-receiver. Also the display and PSU can be turned on and off. To make this work i made a pcb from perfboard with some resistors and transistors. Not too hard to build. To connect the PSU i salvaged the atx connector from an outaged motherboard and glued it on the pcb.
 
 ### Jivelite
 dependencies installed:
@@ -23,7 +28,7 @@ cd luajit-2.0
 make
 sudo make install
 cd ..
-```
+build```
 
 ### Compile Jivelite
 ```
@@ -59,7 +64,7 @@ Connect pin VCC to a +3.3V pin of the PI, pin GND to a ground pin and the data p
 
 Edit /boot/config.txt:
 ```
-...PLACE CODE HERE...
+dtoverlay=lirc-rpi,gpio_in_pin=22,gpio_out_pin=27
 ```
 /etc/lirc/hardware.conf
 ```
