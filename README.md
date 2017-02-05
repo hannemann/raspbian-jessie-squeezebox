@@ -19,11 +19,11 @@ sudo make install
 cd ..
 ```
 
-### Compile Triode Jivelite
+### Compile Jivelite
 ```
-git clone https://github.com/ralph-irving/triode-jivelite.git
-cd triode-jivelite
-sudo make PREFIX=/usr/local
+git clone https://code.google.com/p/jivelite/
+cd jivelite
+sudo make
 ```
 These commands create a binary in the bin subfolder that can be executed from a terminal on the display you want to use it. Starting the binary via ssh does not work.
 Jivelite runs without an X server.
