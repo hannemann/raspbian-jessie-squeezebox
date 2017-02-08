@@ -28,7 +28,7 @@ cd luajit-2.0
 make
 sudo make install
 cd ..
-build```
+```
 
 ### Compile Jivelite
 ```
