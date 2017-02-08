@@ -103,7 +103,9 @@ Next steps: lirc via GPIO, the case i am using has some tactile switches that ca
 
 ### Playback from Turntable
 Install Darkice-1.2 and Icecast2
-```sudo apt-get install darkice icecast2```
+```
+sudo apt-get install darkice icecast2
+```
 Configure Darkice:
 ```
 sudo cp /usr/share/doc/darkice/examples/darkice.cfg.gz /etc/
