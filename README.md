@@ -37,7 +37,6 @@ cd jivelite
 sudo make
 ```
 These commands create a binary in the bin subfolder that can be executed from a terminal on the display you want to use it. Starting the binary via ssh does not work.
-Jivelite runs without an X server.
 
 ### Autologin via systemd
 ```sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf```
@@ -52,7 +51,7 @@ ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM
 #!/bin/bash
 
 if [ $(tty) = "/dev/tty1" ]; then
-        /home/pi/jivelite/bin/jivelite
+        startx /home/pi/jivelite/bin/jivelite
 fi
 ```
 ATX Power supply for the PI via +5VSB and switching the PSU on already working. More to come...
