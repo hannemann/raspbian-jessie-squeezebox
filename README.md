@@ -149,7 +149,7 @@ name            = Phono
                             # name of the stream
 description     = This is only a trial
                             # description of the stream
-url             = http://hifipi.hannemann.lan:8000/phono
+url             = http://[address of your pi]:8000/phono
                             # URL related to the stream
 genre           = my own    # genre of the stream
 public          = yes       # advertise this stream?
