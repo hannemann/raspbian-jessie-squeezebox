@@ -54,7 +54,7 @@ if [ $(tty) = "/dev/tty1" ]; then
         startx /home/pi/jivelite/bin/jivelite
 fi
 ```
-### Install Alsa and Configure Equalizer Plugin
+### Install and Configure Alsa Equalizer Plugin
 ```
 sudo apt-get install libasound2-plugin-equal
 ```
