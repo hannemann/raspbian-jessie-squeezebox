@@ -54,6 +54,32 @@ if [ $(tty) = "/dev/tty1" ]; then
         startx /home/pi/jivelite/bin/jivelite
 fi
 ```
+### Install Alsa and Configure Equalizer Plugin
+```
+sudo apt-get install libasound2-plugin-equal
+```
+Equal related configuration in /etc/asound.conf:
+```
+ctl.equal {
+	type equal;
+	controls "/home/pi/.alsaequal.bin"
+}
+ 
+pcm.plugequal {
+	type equal;
+	slave.pcm "sysdefault:CARD=sndrpihifiberry";
+	controls "/home/pi/.alsaequal.bin"
+}
+ 
+pcm.equal {
+	type plug;
+	slave.pcm plugequal;
+}
+```
+Configure squeezelite to use equal plugin as output in /etc/default/squeezelite
+```
+SL_SOUNDCARD="equal"
+```
 ATX Power supply for the PI via +5VSB and switching the PSU on already working. More to come...
 
 ### Hardware for lirc via GPIO
