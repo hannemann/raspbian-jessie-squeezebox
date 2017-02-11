@@ -80,6 +80,11 @@ Configure squeezelite to use equal plugin as output in /etc/default/squeezelite
 ```
 SL_SOUNDCARD="equal"
 ```
+To adjust sound to your likings type
+```
+sudo alsamixer -D equal
+```
+## Hardware
 ATX Power supply for the PI via +5VSB and switching the PSU on already working. More to come...
 
 ### Hardware for lirc via GPIO
