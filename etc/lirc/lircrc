@@ -1,0 +1,339 @@
+#################
+#
+# Navigation
+#
+#################
+begin
+	prog = irexec
+	remote = remote
+	button = up
+	delay = 5
+	repeat = 2
+	config = /bin/su -c"/home/pi/bin/keys-lib up" pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = down
+	delay = 5
+	repeat = 2
+	config = /bin/su -c "/home/pi/bin/keys-lib down" pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = left
+	delay = 5
+	repeat = 2
+	config = /bin/su -c "/home/pi/bin/keys-lib left" pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = right
+	delay = 5
+	repeat = 2
+	config = /bin/su -c "/home/pi/bin/keys-lib right" pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = select
+	config = /bin/su -c "/home/pi/bin/keys-lib ok" pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = component
+	config = /bin/su -c "/home/pi/bin/keys-lib esc" pi
+end
+#####################
+#
+# Power
+#
+#####################
+begin
+	prog = irexec
+	remote = remote
+	button = power_toggle
+	config = /bin/su -c "/home/pi/bin/toggle-psu" pi
+end
+#####################
+#
+# Volume
+#
+#####################
+begin
+	prog = irexec
+	remote = remote
+	button = menu
+	repeat = 2
+	config = /bin/su -c '/home/pi/bin/keys-lib +' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = return
+	repeat = 2
+	config = /bin/su -c '/home/pi/bin/keys-lib -' pi
+end
+#####################
+#
+# Playback control
+#
+#####################
+#### Play #####
+begin
+	prog = irexec
+	remote = remote
+	button = play
+	config = /bin/su -c '/home/pi/bin/keys-lib p' pi
+end
+#### Stop #####
+begin
+	prog = irexec
+	remote = remote
+	button = stop
+	config = /bin/su -c '/home/pi/bin/keys-lib g' pi
+end
+#### Play/Pause #####
+begin
+	prog = irexec
+	remote = remote
+	button = pause
+	config = /bin/su -c '/home/pi/bin/keys-lib space' pi
+end
+#### Skip FWD #####
+begin
+	prog = irexec
+	remote = remote
+	button = skip_fwd
+	config = /bin/su -c '/home/pi/bin/keys-lib b' pi
+end
+#### Skip back #####
+begin
+	prog = irexec
+	remote = remote
+	button = skip_back
+	config = /bin/su -c '/home/pi/bin/keys-lib z' pi
+end
+#### Toggle shuffle #####
+begin
+	prog = irexec
+	remote = remote
+	button = setup
+	config = /bin/su -c '/home/pi/bin/keys-lib comma' pi
+end
+#### Toggle repeat #####
+begin
+	prog = irexec
+	remote = remote
+	button = repeat
+	config = /bin/su -c '/home/pi/bin/keys-lib dot' pi
+end
+#### search fwd #####
+begin
+	prog = irexec
+	remote = remote
+	button = ffwd
+	repeat = 2
+	config = /bin/su -c '/home/pi/bin/keys-lib r' pi
+end
+#### search bwd #####
+begin
+	prog = irexec
+	remote = remote
+	button = rew
+	repeat = 2
+	config = /bin/su -c '/home/pi/bin/keys-lib e' pi
+end
+#### add at end #####
+begin
+	prog = irexec
+	remote = remote
+	button = 10+
+	config = /bin/su -c '/home/pi/bin/keys-lib d' pi
+end
+#### play next #####
+begin
+	prog = irexec
+	remote = remote
+	button = 3d
+	config = /bin/su -c '/home/pi/bin/keys-lib y' pi
+end
+#### create mix #####
+begin
+	prog = irexec
+	remote = remote
+	button = zoom
+	config = /bin/su -c '/home/pi/bin/keys-lib m' pi
+end
+########################
+#
+# Menu
+#
+########################
+#### Go home/playing #####
+begin
+	prog = irexec
+	remote = remote
+	button = mode
+	config = /bin/su -c '/home/pi/bin/keys-lib n' pi
+end
+##### Favourites #####
+begin
+	prog = irexec
+	remote = remote
+	button = bookmark
+	config = /bin/su -c "/home/pi/bin/keys-lib f" pi
+end
+##### Playlists #####
+begin
+	prog = irexec
+	remote = remote
+	button = vga
+	config = /bin/su -c "/home/pi/bin/keys-lib grave" pi
+end
+##### Library #####
+begin
+	prog = irexec
+	remote = remote
+	button = s-video
+	config = /bin/su -c "/home/pi/bin/keys-lib semicolon" pi
+end
+##### Track Info #####
+begin
+	prog = irexec
+	remote = remote
+	button = title
+	config = /bin/su -c "/home/pi/bin/keys-lib t" pi
+end
+#########################
+#
+# Equalizer
+#
+#########################
+begin
+	prog = irexec
+	remote = remote
+	button = equalizer
+	config = /bin/su -c '/home/pi/bin/toggle-equalizer' pi
+end
+#########################
+#
+# Numbers
+#
+#########################
+begin
+	prog = irexec
+	remote = remote
+	button = one
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 1' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = two
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 2' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = three
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 3' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = four
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 4' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = five
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 5' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = six
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 6' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = seven
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 7' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = eight
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 8' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = nine
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 9' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = zero
+	config = /bin/su -c 'DISPLAY=:0 /usr/bin/xdotool key 0' pi
+end
+#########################
+#
+# Favorites
+#
+#########################
+begin
+	prog = irexec
+	remote = remote
+	button = repeat_ab
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f Phono' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = ntsc-pal
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f "Pink Floyd"' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = step
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f "Radio Paradise"' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = subtitle
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f "NDR Info 96.8 (Community)"' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = angle
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f "All Time Favourite Metal"' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = program
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f Trivium' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = slow
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f "Rodrigo y Gabriela"' pi
+end
+begin
+	prog = irexec
+	remote = remote
+	button = audio
+	config = /bin/su -c '/home/pi/bin/squeeze-favourite.py -s 192.168.3.99 -r HifiPI -f "Afro Celt"' pi
+end
