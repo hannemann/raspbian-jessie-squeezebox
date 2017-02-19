@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export DISPLAY=:0
+
+if [ $(pidof -s alsamixer) ]; then
+        /home/pi/bin/keys-lib esc
+else
+        xterm -bg black -fg white -maximized -e "sudo /usr/bin/alsamixer -Dequal" &
+fi
