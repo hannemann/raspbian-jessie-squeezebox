@@ -3,6 +3,7 @@
 ### Hardware
 * Raspi 3
 * Behringer ufo202 (comes with integrated phono preamp and works ootb with raspbian jessie)
+* Behringer uca202 (works ootb with raspbian jessie)
 * Hifiberry DAC+
 * Superpower HTPC Case with integrated 7" Touchscreen and a front Panel with 5 tactile switches, a power switch and a IR receiver (the panel does not work in any way and has to be modified)
 For the DAC to work add following line to /boot/config.txt
@@ -10,6 +11,13 @@ For the DAC to work add following line to /boot/config.txt
 dtoverlay=hifiberry-dacplus
 ```
 I soldered pin headers to the dac. Most GPIO pins can then be used for... general purpose. We use them to read the buttons from the front panel and the ir-receiver. Also the display and PSU can be turned on and off. To make this work i made a pcb from perfboard with some resistors and transistors. Not too hard to build. To connect the PSU i salvaged the atx connector from an outaged motherboard and glued it on the pcb.
+
+### install squeezelite
+```
+sudo apt-get install squeezelite
+```
+Squeezelite can be configured via /etc/default/squeezelite. Since we use the equalizer plugin for alsa the soundcard has to be set
+* [/etc/default/squeezelite line 11](https://github.com/hannemann/raspbian-jessie-squeezebox/blob/master/etc/default/squeezelite#L11)
 
 ### Jivelite
 dependencies installed:
@@ -38,22 +46,10 @@ sudo make
 ```
 These commands create a binary in the bin subfolder that can be executed from a terminal on the display you want to use it. Starting the binary via ssh does not work.
 
-### Autologin via systemd
-```sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf```
-```
-[Service]
-Type=simple
-ExecStart=
-ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM
-```
-``` vi ~/.bash_profile```
-```
-#!/bin/bash
+### Autologin via systemd and start jivelite
+* create [/etc/systemd/system/getty-tty1.service.d/override.conf](https://github.com/hannemann/raspbian-jessie-squeezebox/blob/master/etc/systemd/system/getty-tty1.service.d/override.conf)
+* create [/home/pi/.bash_profile](https://github.com/hannemann/raspbian-jessie-squeezebox/blob/master/home/pi/.bash_profile)
 
-if [ $(tty) = "/dev/tty1" ]; then
-        startx /home/pi/jivelite/bin/jivelite
-fi
-```
 ### Install and Configure Alsa Equalizer Plugin
 ```
 sudo apt-get install libasound2-plugin-equal
