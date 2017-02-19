@@ -1,0 +1,25 @@
+#!/bin/bash
+
+. $HOME/pinout-config
+
+STATUS=$(gpio read $PSU)
+
+psu_on() {
+
+        if [ $STATUS -eq 0 ]; then
+                gpio write $PSU 1
+        fi
+}
+
+psu_off() {
+
+        if [ $STATUS -eq 1 ]; then
+                gpio write $PSU 0
+        fi
+}
+
+if [ "$1" == "" ]; then
+        [ $STATUS -eq 1 ] && psu_off || psu_on
+else
+        [ "$1" == "off" ] && psu_off || psu_on
+fi
