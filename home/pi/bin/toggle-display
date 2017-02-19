@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. $HOME/pinout-config
+
+OUT=$DISPLAY_TOGGLE
+
+gpio mode $OUT out
+gpio write $OUT 1
+sleep 0.1
+gpio write $OUT 0
