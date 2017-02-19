@@ -12,6 +12,33 @@ dtoverlay=hifiberry-dacplus
 ```
 I soldered pin headers to the dac. Most GPIO pins can then be used for... general purpose. We use them to read the buttons from the front panel and the ir-receiver. Also the display and PSU can be turned on and off. To make this work i made a pcb from perfboard with some resistors and transistors. Not too hard to build. To connect the PSU i salvaged the atx connector from an outaged motherboard and glued it on the pcb.
 
+### Install and Configure Alsa Equalizer Plugin
+```
+sudo apt-get install libasound2-plugin-equal
+```
+Equal related configuration in /etc/asound.conf:
+```
+ctl.equal {
+	type equal;
+	controls "/home/pi/.alsaequal.bin"
+}
+ 
+pcm.plugequal {
+	type equal;
+	slave.pcm "sysdefault:CARD=sndrpihifiberry";
+	controls "/home/pi/.alsaequal.bin"
+}
+ 
+pcm.equal {
+	type plug;
+	slave.pcm plugequal;
+}
+```
+
+To adjust sound to your likings type
+```
+sudo alsamixer -D equal
+```
 ### install squeezelite
 ```
 sudo apt-get install squeezelite
@@ -50,36 +77,6 @@ These commands create a binary in the bin subfolder that can be executed from a 
 * create [/etc/systemd/system/getty-tty1.service.d/override.conf](https://github.com/hannemann/raspbian-jessie-squeezebox/blob/master/etc/systemd/system/getty-tty1.service.d/override.conf)
 * create [/home/pi/.bash_profile](https://github.com/hannemann/raspbian-jessie-squeezebox/blob/master/home/pi/.bash_profile)
 
-### Install and Configure Alsa Equalizer Plugin
-```
-sudo apt-get install libasound2-plugin-equal
-```
-Equal related configuration in /etc/asound.conf:
-```
-ctl.equal {
-	type equal;
-	controls "/home/pi/.alsaequal.bin"
-}
- 
-pcm.plugequal {
-	type equal;
-	slave.pcm "sysdefault:CARD=sndrpihifiberry";
-	controls "/home/pi/.alsaequal.bin"
-}
- 
-pcm.equal {
-	type plug;
-	slave.pcm plugequal;
-}
-```
-Configure squeezelite to use equal plugin as output in /etc/default/squeezelite
-```
-SL_SOUNDCARD="equal"
-```
-To adjust sound to your likings type
-```
-sudo alsamixer -D equal
-```
 ## Hardware
 ATX Power supply for the PI via +5VSB and switching the PSU on already working. More to come...
 
