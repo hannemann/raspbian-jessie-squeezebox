@@ -84,7 +84,7 @@ ATX Power supply for the PI via +5VSB and switching the PSU on already working. 
 Cut an old USB cable and connect the red wire with the purple wire of the ATX PSU and the black wire with any of the black wires of teh ATX PSU.
 ### Switching the psu
 To switch the PSU on via GPIO pin i connected the green and a black wire of the PSU with the emitter and collector of an NPN transistor. The base connects to an 10K Resistor and that to an GPIO Pin. If i set the GPIO to high, the PSU switches on.
-![perfboardIMG_20170215_102619.jpg](/images/)
+![perfboard](/images/IMG_20170215_102619.jpg)
 
 ### Hardware for lirc via GPIO
 I have used a TSOP4838 IR Receiver. The pinout can be found in several Datasheets available around the internet.
