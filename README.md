@@ -45,6 +45,7 @@ sudo apt-get install squeezelite
 ```
 Squeezelite can be configured via /etc/default/squeezelite. Since we use the equalizer plugin for alsa the soundcard has to be set
 * [/etc/default/squeezelite line 11](https://github.com/hannemann/raspbian-jessie-squeezebox/blob/master/etc/default/squeezelite#L11)
+You can also set an arbitrary name if you like
 
 ### Jivelite
 dependencies installed:
@@ -83,7 +84,7 @@ ATX Power supply for the PI via +5VSB and switching the PSU on already working. 
 ### Hardware for lirc via GPIO
 I have used a TSOP4838 IR Receiver. The pinout can be found in several Datasheets available around the internet.
 
-Connect pin VCC to a +3.3V pin of the PI, pin GND to a ground pin and the data pin to an arbitrary GPIO pin.
+Connect pin VCC to a +3.3V pin of the PI, pin GND to a ground pin and the data pin to an arbitrary GPIO pin e.g. Pin 22 (BCM).
 
 Edit /boot/config.txt:
 ```
