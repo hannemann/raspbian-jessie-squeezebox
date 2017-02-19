@@ -84,6 +84,7 @@ ATX Power supply for the PI via +5VSB and switching the PSU on already working. 
 Cut an old USB cable and connect the red wire with the purple wire of the ATX PSU and the black wire with any of the black wires of teh ATX PSU.
 ### Switching the psu
 To switch the PSU on via GPIO pin i connected the green and a black wire of the PSU with the emitter and collector of an NPN transistor. The base connects to an 10K Resistor and that to an GPIO Pin. If i set the GPIO to high, the PSU switches on.
+![perfboardIMG_20170215_102619.jpg](/images/)
 
 ### Hardware for lirc via GPIO
 I have used a TSOP4838 IR Receiver. The pinout can be found in several Datasheets available around the internet.
@@ -105,7 +106,7 @@ irrecord -n -d /dev/lirc0 remote # follow instructions
 sudo cp remote /etc/lirc/lircd.conf
 ```
 ### Tactile Switches of the HTPC case
-the GPIOs i use ar pulled to high via an 10K Resistor connected to +3.3V Pin. The switches connect to the GPIOs and to Ground. If i press a switch the GPIO falls which can easily detected with the wiringpi library.
+the GPIOs i use are pulled to high via an 10K Resistor connected to +3.3V Pin. The switches connect to the GPIOs and to Ground. If i press a switch the GPIO falls which can easily detected with the wiringpi library.
 ```
 sudo apt-get install wiringpi
 ```
