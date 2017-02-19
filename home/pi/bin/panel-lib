@@ -1,0 +1,46 @@
+#!/bin/bash
+
+. $HOME/pinout-config
+
+power_switch() {
+
+        gpio mode $POWER_SWITCH in
+        gpio mode $PSU out
+        gpio write $PSU 1
+
+        while true; do
+                gpio wfi $POWER_SWITCH falling
+                sleep 0.008
+                if [ $(gpio read $POWER_SWITCH) -eq 0 ]; then
+                        toggle-psu
+                fi
+        done;
+
+
+}
+
+read_switch() {
+
+        gpio mode $1 in
+
+        while true; do
+                gpio wfi $1 falling
+                sleep 0.008
+                if [ $(gpio read $1) -eq 0 ]; then
+                        $2
+                        while [ $(gpio read $1) -eq 0 ]; do
+                                sleep 0.1
+                                if [ $(gpio read $1) -eq 0 ]; then
+                                        $2
+                                fi
+                        done
+                fi
+        done;
+}
+
+power_switch &
+read_switch $PANEL1 "keys-lib up" &
+read_switch $PANEL2 "keys-lib down" &
+read_switch $PANEL3 "keys-lib left" &
+read_switch $PANEL4 "keys-lib right" &
+read_switch $PANEL5 "keys-lib ok" &
