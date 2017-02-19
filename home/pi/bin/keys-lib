@@ -1,0 +1,128 @@
+#!/bin/bash
+
+export DISPLAY=:0
+
+logger -t KEYS $1
+
+if [ "$1" == "up" ]; then
+        xdotool key Up
+fi
+
+if [ "$1" == "down" ]; then
+        xdotool key Down
+fi
+
+if [ "$1" == "left" ]; then
+        xdotool key Left
+fi
+
+if [ "$1" == "right" ]; then
+        xdotool key Right
+fi
+
+if [ "$1" == "ok" ]; then
+        xdotool key Return
+fi
+
+if [ "$1" == "back" ]; then
+        xdotool key BackSpace
+fi
+
+if [ "$1" == "esc" ]; then
+        xdotool key Escape
+fi
+
+# home or now playing
+if [ "$1" == "n" ]; then
+        xdotool key n
+fi
+
+# toggle play/pause
+if [ "$1" == "space" ]; then
+        xdotool key space
+fi
+
+# skip_fwd
+if [ "$1" == "b" ]; then
+        xdotool key b
+fi
+
+# skip_back
+if [ "$1" == "z" ]; then
+        xdotool key z
+fi
+
+# shuffle
+if [ "$1" == "comma" ]; then
+        xdotool key comma
+fi
+
+# repeat
+if [ "$1" == "dot" ]; then
+        xdotool type .
+fi
+
+# play
+if [ "$1" == "p" ]; then
+        xdotool key p
+fi
+
+# stop
+if [ "$1" == "g" ]; then
+        xdotool key g
+fi
+
+# favourites
+if [ "$1" == "f" ]; then
+        xdotool key f
+fi
+
+# volup
+if [ "$1" == "+" ]; then
+        xdotool key plus
+fi
+
+# voldown
+if [ "$1" == "-" ]; then
+        xdotool key minus
+fi
+
+# scan_fwd
+if [ "$1" == "r" ]; then
+        xdotool key r
+fi
+
+# scan_rew
+if [ "$1" == "e" ]; then
+        xdotool key e
+fi
+
+# track info
+if [ "$1" == "t" ]; then
+        xdotool key t
+fi
+
+# library
+if [ "$1" == "semicolon" ]; then
+        xdotool key semicolon
+fi
+
+# add at end
+if [ "$1" == "d" ]; then
+        xdotool key d
+fi
+
+# play next
+if [ "$1" == "y" ]; then
+        xdotool key y
+fi
+
+# playlists
+if [ "$1" == "grave" ]; then
+        xdotool key grave
+fi
+
+# create mix
+if [ "$1" == "m" ]; then
+        xdotool key m
+fi
