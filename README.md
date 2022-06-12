@@ -129,4 +129,20 @@ Create *.liq files for every source you want to stream
 
 Icecast will ask for hostname and passwords while installing. Type in localhost and your password used in darkice configuration. Always use extreme secure passwords!
 
-
+## Visualization
+### VU Meter
+#### Squeezelite Configuration
+```
+sudo vi /etc/default/squeezelite
+```
+add `-v` parameter to `SB_EXTRA_ARGS="-v"`  
+#### To change the VU Meter edit:
+```
+vi ~/jivelite/share/jive/applets/JogglerSkin/JogglerSkinApplet.lua
+```
+Find `vumeter_analog` and change the path to image accordingly.  
+You can find images in:
+```
+ls -l ~/jivelite/share/jive/applets/JogglerSkin/images/UNOFFICIAL/VUMeter/
+```
+`killall jivelite` will restart it.
