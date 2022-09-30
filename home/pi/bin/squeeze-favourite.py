@@ -45,23 +45,37 @@ class SqueezeFavorite(object):
         payload = "players 0 9999\n"
         self.socket.send(payload)
         start = time.time()
-        while 1:
-            data = self.socket.recv(4096)
-            if data or time.time() - start > 10:
+	result = ''
+        while True:
+            if time.time() - start > 10:
                 break
+            data = self.socket.recv(4096)
+	    if len(data) > 0:
+		result += data
+	    	if "\n" in data[len(data)-1]:
+		    break
+	    else:
+		break
         if data:
-            self.parse_players(data)
+            self.parse_players(result)
 
     def get_favorites(self):
         payload = "favorites items 1 9999\n"
         self.socket.send(payload)
         start = time.time()
-        while 1:
-            data = self.socket.recv(4096)
-            if data or time.time() - start > 10:
+	result = ''
+	while True:
+            if time.time() - start > 10:
                 break
-        if data:
-            self.parse_favorites(data)
+            data = self.socket.recv(2048);
+	    if len(data) > 0:
+		result += data
+	    	if "\n" in data[len(data)-1]:
+		    break
+	    else:
+		break
+        if len(result) > 0:
+            self.parse_favorites(result)
 
     def shuffle_playlist(self, player_name):
         payload = "{} playlist shuffle ?\n".format(self.players[player_name])
@@ -92,7 +106,9 @@ class SqueezeFavorite(object):
             stop += length
 
     def parse_favorites(self, data):
-        data = data.split(' ')[6:-1]
+        data = data.split(' ')[5:-1]
+        for i, part in enumerate(data):
+	    data[i] = urllib.unquote(part).split(':', 1)
         start = 0
         length = 6
         stop = start + length
@@ -100,7 +116,7 @@ class SqueezeFavorite(object):
             row = data[start:stop]
             current = {}
             for i in row:
-                key, value = urllib.unquote(i).split(':', 1)
+                key, value = i
                 current[key] = value
             self.favorites[current['name']] = current['id']
             start = stop
