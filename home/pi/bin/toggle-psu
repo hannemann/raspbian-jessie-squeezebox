@@ -8,6 +8,7 @@ psu_on() {
 
         if [ $STATUS -eq 0 ]; then
                 gpio write $PSU 1
+		killall -9 jivelite
         fi
 }
 

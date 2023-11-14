@@ -6,5 +6,6 @@ OUT=$DISPLAY_TOGGLE
 
 gpio mode $OUT out
 gpio write $OUT 1
+killall -9 jivelite
 sleep 0.1
 gpio write $OUT 0
